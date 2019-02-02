@@ -19,36 +19,46 @@ if(j==0):
     findInverse(j)
 print(k)
 print(kin)
-ap=[]
-mg=[]
-ck=[]
-ct=""
-pt=""
-a="abcdefghijklmnopqrstuvwxyz"
-for i in a:
-    ap.append(i)
-print(ap)
-for i in range(len(s)):
-    for j in range(26):
-        if(s[i]==ap[j]):
-            mg.append(j)
-mg=[(x*k)%26 for x in mg]
-print(mg)
-for i in range(len(mg)):
-    for j in range(26):
-        if(mg[i]==j):
-            ct+=ap[j]
-print("cipher text is=",end="  ")
-print(ct)
-for i in range(len(ct)):
-    for j in range(26):
-        if(ct[i]==ap[j]):
-            ck.append(j)
+if(kin==0 or k==0):
+    findInverse(j)
+else:
+    ap=[]
+    mg=[]
+    ck=[]
+    ct=""
+    pt=""
+    a="abcdefghijklmnopqrstuvwxyz "
+    print(a[26])
+    for i in a:
+        ap.append(i)
+    for i in range(len(s)):
+        for j in range(27):
+            if(s[i]==ap[j]):
+                mg.append(j)
+    for i in range(len(mg)):
+        if(mg[i]==26):
+            mg[i]=26
+        else:
+            mg[i]=(mg[i]*k)%26
+    for i in range(len(mg)):
+        for j in range(27):
+            if(mg[i]==j):
+                ct+=ap[j]
+    print("cipher text is=",end="  ")
+    print(ct)
+    for i in range(len(ct)):
+        for j in range(27):
+            if(ct[i]==ap[j]):
+                ck.append(j)
 
-ck=[(x*kin)%26 for x in ck]
-for i in range(len(ck)):
-    for j in range(26):
-        if(ck[i]==j):
-            pt+=ap[j]
-print("plain text is=",end="  ")
-print(pt)
+    for i in range(len(ck)):
+        if(ck[i]==26):
+            ck[i]=26
+        else:
+            ck[i]=(ck[i]*kin)%26
+    for i in range(len(ck)):
+        for j in range(27):
+            if(ck[i]==j):
+                pt+=ap[j]
+    print("plain text is=",end="  ")
+    print(pt)
