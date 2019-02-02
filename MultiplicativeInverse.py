@@ -1,6 +1,7 @@
 import numpy as np 
 import random
-j=k=kin=0
+j=k=0
+kin=0
 def findInverse(j):
     global k
     global kin
